@@ -1,0 +1,57 @@
+body{
+    margin: o;
+}
+
+.top{
+    text-align: center;
+
+}
+.top .quickmenu{
+    margin: 10px 0 30px 0;
+    font-size: 11px;
+    color: #999;
+    text-align: right;
+}
+.top h1{
+    display: inline;
+    
+}
+
+.top .search{
+    display:inline-block;
+    height:40px;
+    width:500px; 
+    box-sizing:bordor-box; 
+    border:3px solid #6b6; 
+    position:relative; 
+    top: -3px;
+    font-size: 20px;
+    padding: 20px;
+}
+.top .btn{
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    background: #6b6;
+    border: 1px solid #6b6;
+    position: relative;
+    top: 9px;
+}
+
+.menu{
+    text-align: center;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solit #aaa;
+}
+
+.contents{
+    text-align: center;
+    background: #ddd;
+
+}
+
+.centerbox{
+    width:965px;
+    background: #fff;
+    margin:0 auto 0 auto;
+}
