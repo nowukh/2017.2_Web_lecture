@@ -1,0 +1,70 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+
+        <script>
+            //if else 문 if(식) 문 else 문
+            var a = 3;
+            if(a > 1) console.log("greater then 1");
+            if      (a > 2)console.log("greater then 2");
+            if(a>2.5){
+                console.log("greater then 2.5");
+            }
+            if (a > 4) console.log("greater then 4"); 
+            else if (a > 5) console.log("greater then 5");
+            
+            //while(식) 문
+            var i = 5;
+            while(i--) console.log(i);
+
+            var f = function(a){
+                if (a === undefined){
+                    a = 'hello';
+                }
+                console.log(a);
+            }
+            f("greeting");
+            f();
+
+            var o1 = new Object();
+            o1.name = 'kh';
+            o1.role = 'tutee';
+            console.log(o1);
+            var o2 = {name:"정", role:"students"};
+            console.log(o2);
+
+            var arr1 = new Array();
+            arr1[0] = 3;
+            arr1[1] = 5;
+            console.log(arr1);
+            var arr2 = [6,7];
+            console.log(arr2);
+
+            var f1 = function double(v){return v*2;};
+            console.log(f1(5));
+
+            var f2 = function(f,v){
+                return f(v);
+            }
+            console.log(f2(f1, 5))
+
+            var farr = [
+                function double(v){return v*2}
+                function triple(v){return v*3}
+            ];
+
+            var executor = function(f, v){
+                return f(v)
+            };
+
+            for (var i = 0, j = farr.length; i < j; i++){
+                console.log(executor(farr[i], 10))
+            };
+
+
+        </script>
+    </body>
+</html>
