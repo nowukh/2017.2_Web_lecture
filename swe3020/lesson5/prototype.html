@@ -8,13 +8,20 @@
             if (this instanceof Students){
             this.name = name;
             this.grade = grade;
-            this.display = function(){
-                console.log(this.name, this.grade);
-            }
+
             }else{
                 return new Students(name, grade);
             }
         }; 
+
+        Students.prototype.display = function({
+            console.log(this.name, this.grade);
+        }); //이런식으로 프로토타입에 메소드 선언도 가능하다.
+
+        Students.action = function(){};
+
+        
+
         var st1 = new Students("가나다",2);
         console.log(st1);
         st1.display();
@@ -29,6 +36,12 @@
         //console.log(student.name, student.grade);
         //console.log(student instanceof Students);
         
+        // class Extended extends Base{} 
+        var Base = function(){}
+        var Extended = function(){}
+        Extended.prototype  = new Base();
+
+
 
         </script>
     </body>
