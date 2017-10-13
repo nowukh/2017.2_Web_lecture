@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var arr = [];
+            console.log(arr.length);
+            arr[99] = 10;
+            console.log(arr.length);
+
+            arr["a"] = "a입니다."; // 자바스크립트의 배열은 알고보니 오브젝트..
+            console.log(arr["a"]);
+
+
+            var arr2 = [100,50,1,4,5]
+            var compareTo = function(a, b){
+                if(a >b) return 1;
+                else if(a == b) return 0;
+                else return -1;
+            };
+            arr2.sort(compareTo); //sort 함수는 두 가지 인자를 받아서 1,0,-1을 넘겨줄 수 있는 함수를 요구한다.
+            console.log(arr2);
+            arr2.push(1,2,3);
+            console.log(arr2);
+            arr2.pop();
+            console.log(arr2);
+
+            arr2.forEach(function(item, index){
+                console.log(item, index); // item에는 arr[i]을 보내준다.두번째 인자에는 index번호를 넘겨준다.
+            });
+
+        </script>
+    </body>
+</html>

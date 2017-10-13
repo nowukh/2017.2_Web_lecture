@@ -1,0 +1,33 @@
+<html>
+    <head></head>
+    <body>
+        <p id="test">data</p>
+        <div>
+            <div>inner</div>
+        </div>
+
+        <script>
+            var body = document.body;
+            console.log(body.children);
+            console.log(document.getElementsByTagName("div"));
+            console.log(document.getElementById('test').innerHTML = "안녕하세요");
+
+            var panel = document.getElementById('test');
+            var log = function(data){
+                panel.innerHTML  = data;
+            };
+            
+            log("hello DOM");
+            panel.addEventListener("click", function(event){
+                alert("hello");
+            });
+            var count = 0;
+            
+            /*
+            setInterval(function(){
+                log(count++);
+            }, 100);
+            */
+        </script>
+    </body>
+</html>

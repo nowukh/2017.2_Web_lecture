@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+        var Students = function(name, grade){
+            if (this instanceof Students){
+            this.name = name;
+            this.grade = grade;
+            this.display = function(){
+                console.log(this.name, this.grade);
+            }
+            }else{
+                return new Students(name, grade);
+            }
+        }; 
+        var st1 = new Students("가나다",2);
+        console.log(st1);
+        st1.display();
+        console.log(Students.prototype);
+        //Students("정광현",1);
+       // console.log(name, grade); // name과 grade를 따로 설정하지 않았지만, Student 함수를 생성자를 통해 프로토타입으로 부른게 아니기 때문에,
+                                  // this가 전체(글로벌)을 가리키게 되어 전역 변수 설정한 것처럼 된다. 
+        
+        //결국 new를 불러서 사용하면 생성자로 작동하고 그냥 호출하면 함수로 작동.
+        //var student = new Students("학생", 1);
+        
+        //console.log(student.name, student.grade);
+        //console.log(student instanceof Students);
+        
+
+        </script>
+    </body>
+</html>
