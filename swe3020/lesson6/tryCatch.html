@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" name="" id="data"/>
+        <div id="msg"></div>
+        <script>
+            var target = document.getElementById("data");
+            var solution = 53;
+            var msg = document.getElementById("msg");
+            var test = function(){
+                var result = "ok";
+                try{
+                    var x = target.value;
+                    if(x =="") throw "빈값";
+                    else if(isNaN(x)) throw "숫자가 아님";
+                    else x = Number(x);
+
+                    if(x > solution) throw "크다";
+                    else if (x < solution) throw "작다";
+                }catch(e){
+                    msg.innerHTML = e;
+                    result = e;
+                }
+                msg.innerHTML = result;
+            }
+            target.onchange = test;
+        </script>
+    </body>
+</html>
