@@ -1,0 +1,40 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <section class="testover">
+            <h2>
+                h2
+            </h2>
+            <div>
+                div
+            </div>
+        </section>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+
+            var model = {
+                title:{
+                    over: "test overed",
+                    out: "test"
+                },
+                count: 0
+            };
+            $(".testover").mouseover(function(e){
+                console.log(e);
+                var children = $(e.target).children();
+                console.log(children);
+                $(children[0]).html(model.title.over);
+                $(children[1]).html(model.count++);
+            });
+            $(".testover").mouseout(mouseout = function(e){ //mouseout기능 함수를 mouseout이라는 변수에 할당해줬다. 나중에 쓰려고.
+                var children = $(e.target).children();
+                $(children[0]).html(model.title.out);
+            });
+            mouseout({target:$(".testover"[0])});
+        </script>
+    </body>
+</html>

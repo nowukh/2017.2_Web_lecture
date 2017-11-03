@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+    <button id="btn">show</button>
+    <button id="btn2">change</button>
+    <img id="dog" style="display:none" width="200px" height="200px"
+    src="dog.jpg">
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+        </script>
+        <script>
+            $("#btn").click(function(e){
+                $("#dog")
+                .show(1000)
+                .animate({left: '200px'})
+                .animate({'border-radius':'50%'})
+                .animate({left: '10px'})
+                .hide(1000);
+            });
+            $("#btn2").click(function(e){
+                $("#dog").attr("src","https://www.what-dog.net/Images/faces2/scroll001.jpg");
+            });
+        </script>
+</body>
+</html>
