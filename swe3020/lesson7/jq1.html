@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){});
+            //위 코드와 밑의 코드는 같다. 자주 사용해서 축약해줬다.
+            $(function(){
+                $("h2").click(function(){   //h2를 getElementByTagname처럼 쓴다. 결과도 배열로 반환됨. 
+                                            //만약 h2의 0번째만 사용하고 싶으면 $($("h2")[0])이렇게 해야. $(h2)[0]는 돔객체 반환. 이걸 다시 $()로 씌워 제이쿼리 객체로 만들어줘야.
+                    console.log("h2 clicked!");
+                }); 
+            });
+
+            //만약 jquery를 클릭하지 않았다면?  아래와 같이 작성.
+            window.addEventListener("load", function(){
+                var h2 = document.getElementsByTagName("h2");
+                h2[0].addEventListener("click",function(){
+                    console.log("h2 clicked1");
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <h2>h2 TEST</h2>
+    </body>
+</html>
