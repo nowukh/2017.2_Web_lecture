@@ -1,49 +1,33 @@
 <html>
     <head>
-
     </head>
     <body>
         <section class="testover">
-            <h2>
-                h2
-            </h2>
-            <div>
-                div
-            </div>
+            <h2></h2>
+            <div></div>
         </section>
         <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
-
+        crossorigin="anonymous"></script>
+        <script>
             var model = {
-                title: {
-                    over: "test overed",
-                    out: "test"
+                title:{
+                    over:"test overed",
+                    out:"test"
                 },
-                count: 0
+                count:0
             };
-            /*
-            $(".testover").mouseover(function(e){ //e에 event객체가 넘어온다.
-                e.stopImmediatePropagation(); //캡처링단계에서 받고 끊는다.
-                console.log(e);
-                var children = $(e.currenttarget).children(); // 자바스크립트 기본은 버블링. 위에 보이는 자식부터 이벤트를 받는다. 그래서 target 말고 currenttarget으로 캡처링 단게에서 접근해준다.
-                console.log(children);
+            $(".testover").click(function(e){
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
                 $(children[0]).html(model.title.over);
-                $(children[1]).html(model.count++);
-            
+                $(children[1]).html(model.count++);                
             });
-            $(".testover").mouseout(mouseout = function(e){ //mouseout기능 함수를 mouseout이라는 변수에 할당해줬다. 나중에 쓰려고.
-                e.stopImmediatePropagation(); //캡처링단계에서 받고 끊는다.
-                var children = $(e.currenttarget).children();
-                $(children[0]).html(model.title.out);
-            });
-
             var init = function(){
-                ($$(".testover").children()[0]).html(model.title.out);
-            }
-            */
-
+                $($(".testover").children()[0]).html(model.title.out);
+            };
+            init();
         </script>
     </body>
 </html>
