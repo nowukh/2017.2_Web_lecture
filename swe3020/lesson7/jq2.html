@@ -17,24 +17,33 @@
         crossorigin="anonymous">
 
             var model = {
-                title:{
+                title: {
                     over: "test overed",
                     out: "test"
                 },
                 count: 0
             };
-            $(".testover").mouseover(function(e){
+            /*
+            $(".testover").mouseover(function(e){ //e에 event객체가 넘어온다.
+                e.stopImmediatePropagation(); //캡처링단계에서 받고 끊는다.
                 console.log(e);
-                var children = $(e.target).children();
+                var children = $(e.currenttarget).children(); // 자바스크립트 기본은 버블링. 위에 보이는 자식부터 이벤트를 받는다. 그래서 target 말고 currenttarget으로 캡처링 단게에서 접근해준다.
                 console.log(children);
                 $(children[0]).html(model.title.over);
                 $(children[1]).html(model.count++);
+            
             });
             $(".testover").mouseout(mouseout = function(e){ //mouseout기능 함수를 mouseout이라는 변수에 할당해줬다. 나중에 쓰려고.
-                var children = $(e.target).children();
+                e.stopImmediatePropagation(); //캡처링단계에서 받고 끊는다.
+                var children = $(e.currenttarget).children();
                 $(children[0]).html(model.title.out);
             });
-            mouseout({target:$(".testover"[0])});
+
+            var init = function(){
+                ($$(".testover").children()[0]).html(model.title.out);
+            }
+            */
+
         </script>
     </body>
 </html>
