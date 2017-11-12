@@ -1,0 +1,24 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <svg id ="test"xmlns ="htt://www.w3.org/2000/svg" version="1.1" style="width:80%;height:80%;border:1px solid;">
+            <!-- <ellipse cx="50%" cy="50%" r="50%" style="fill: blue; stroke-width:5;stroke:black"/> -->
+            <circle cx="10%" cy="10%" r="5%" stroke="black" stroke-width="3" fill="red">
+                <animate attributeName="width" from="0" to="100" dur="10s"/> 
+            </circle>
+            <rect x="15%" y="15%" width="10%" height="10%" style="fill: bisque; stroke-width:2;stroke:black"/>
+            
+        </svg>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+        $("#test").click(function(e){
+            alert("test");
+        });
+        </script>
+    </body>
+</html>

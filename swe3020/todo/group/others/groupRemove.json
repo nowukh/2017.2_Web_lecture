@@ -1,0 +1,16 @@
+{
+/* 그룹 삭제시 오늘 할일 목록으로 넘어감 */
+    "result":"ok",
+    "data":[
+        {
+            "id":1, 
+            "name":"오늘 할일", 
+            "color":"blue", 
+            "themeId":2,
+            "icon":"sun", 
+            "taskId":[1,3],
+            "order":null,
+            "isShow":null
+        }
+    ]
+}

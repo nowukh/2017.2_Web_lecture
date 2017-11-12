@@ -23,6 +23,11 @@
       $.post("jq1.html", {a:5, b:3}, function(data, status){
           console.log(data);
       });
+      var el = $('#id');
+      $.get("jq1.html", {a:5, b:3}, function(data, status){
+          el.html(data);
+      });
+      el.load("jq1.html",{a:5, b:3});
       /*
       $.get("jq1.html", {a:5, b:3}).then(function(data, status){
           console.log(data);

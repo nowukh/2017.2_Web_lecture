@@ -1,0 +1,16 @@
+{ 
+    /* 테마 변경된 목록의 정보 반환 */
+    "result":"ok",
+    "data":[
+        {
+            "id":3, 
+            "name":"과제", 
+            "color":"blue", 
+            "themeId":2,
+            "icon":"tv", 
+            "taskId":[1,2,3],
+            "order":1,
+            "isShow":false
+        }
+    ]
+}
