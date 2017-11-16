@@ -6,11 +6,12 @@
             "id":3, 
             "name":"과제", 
             "color":"blue", 
-            "themeId":2,
+            "themeId":3,
             "icon":"tv", 
             "taskId":[1,2,3],
-            "order":1,
-            "isShow":false
+            "order":"createdAt",
+            "isShow":false,
+            "createdAt":"2017-11-09T13:00:00Z"
         }
     ]
 }

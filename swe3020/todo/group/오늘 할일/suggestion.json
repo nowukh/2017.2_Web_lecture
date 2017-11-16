@@ -1,0 +1,57 @@
+{
+    "result":"ok",
+    "data":{
+            // 지난 할일
+            "oldTodo":{ 
+                "createdAt":"2017-11-10T20:10:33Z",
+                "taskList":[
+                    {
+                        "id":2, 
+                        "name":"a",
+                        "isDone":true, 
+                        "todayTask":false, 
+                        "alram":false,
+                        "dueTo":false,
+                        "repeat": false,
+                        "createdAt":"2017-11-10T20:10:33Z"
+                    }
+                ]
+            },
+            // 추천 할일 
+            "suggestion":{
+                "groupName":["과제"],
+                "taskList":[
+                    {
+                        "id":1, 
+                        "name":"c",
+                        "isDone":false, 
+                        "todayTask":true, 
+                        "alram":"4:00 pm",
+                        "dueTo":"tommorow",
+                        "repeat": false,
+                        "createdAt":"2017-11-09T13:01:35Z"
+                    },      
+                    {
+                        "id":2, 
+                        "name":"a",
+                        "isDone":true, 
+                        "todayTask":false, 
+                        "alram":false,
+                        "dueTo":false,
+                        "repeat": false,
+                        "createdAt":"2017-11-10T20:10:33Z"
+                    },
+                    {
+                        "id":3, 
+                        "name":"b",
+                        "isDone":false, 
+                        "todayTask":true, 
+                        "alram":false,
+                        "dueTo":"tommorow",
+                        "repeat":"week",
+                        "createdAt":"2017-11-11T11:20:12Z"
+                    }
+                ]
+            }
+    }
+}

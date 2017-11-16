@@ -1,5 +1,5 @@
 {
-        /* 이름순 정렬 */
+    /* 이름순 정렬 */
     "result":"ok",
     "data":[
         {
@@ -10,7 +10,7 @@
             "alram":false,
             "dueTo":false,
             "repeat": false,
-            "createdAt":"2017-11-10-sat"
+            "createdAt":"2017-11-10T20:10:33Z"
         },
         {
             "id":3, 
@@ -20,7 +20,7 @@
             "alram":false,
             "dueTo":"tommorow",
             "repeat":"week",
-            "createdAt":"2017-11-11-sat"
+            "createdAt":"2017-11-11T11:20:12Z"
         },
         {
             "id":1, 
@@ -30,7 +30,7 @@
             "alram":"4:00 pm",
             "dueTo":"tommorow",
             "repeat": false,
-            "createdAt":"2017-11-09-sat"
+            "createdAt":"2017-11-09T13:01:35Z"
         }
     ]
 }

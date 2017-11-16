@@ -5,30 +5,46 @@
             "id":1, 
             "name":"오늘 할 일", 
             "color":"blue", 
-            "icon":"sun", 
-            "count":3,
-            "today":"11-11-sate"
+            "icon":"sun",
+            "themeId":1, 
+            "count":2,
+            "taskId":[1,3],
+            "order":null,
+            "isShow":null,
+            "createdAt":null
         },      
         {
             "id":2, 
             "name":"To-Do", 
             "color":"blue", 
             "icon":"home", 
-            "count":0
+            "themeId":2, 
+            "count":0,
+            "order":"createdAt",
+            "isShow":true,
+            "createdAt":null
         },
         {
             "id":3, 
             "name":"과제", 
             "color":"green", 
-            "icon":"tv", 
-            "count":3
+            "themeId":2,
+            "icon":"default", 
+            "taskId":[1,2,3],
+            "order":"createdAt",
+            "isShow":false,
+            "createdAt":"2017-11-09T13:00:00Z"
         },
         {
             "id":4, 
             "name":"추가된 과제", 
             "color":"blue", 
+            "themeId":3,
             "icon":"default", 
-            "count":0
+            "taskId":[],
+            "order":0,
+            "isShow":false,
+            "createdAt":"2017-11-11T13:00:00Z"
         }
     ]
 }

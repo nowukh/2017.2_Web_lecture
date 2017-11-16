@@ -1,16 +1,26 @@
 {
-/* 그룹 삭제시 오늘 할일 목록으로 넘어감 */
+/* 그룹 삭제시 오늘 할일 목록의 할일이 보여짐 */
     "result":"ok",
     "data":[
         {
             "id":1, 
-            "name":"오늘 할일", 
-            "color":"blue", 
-            "themeId":2,
-            "icon":"sun", 
-            "taskId":[1,3],
-            "order":null,
-            "isShow":null
+            "name":"c",
+            "isDone":false, 
+            "todayTask":true, 
+            "alram":"4:00 pm",
+            "dueTo":"tommorow",
+            "repeat": false,
+            "createdAt":"2017-11-09T13:01:35Z"
+        },      
+        {
+            "id":3, 
+            "name":"b",
+            "isDone":false, 
+            "todayTask":true, 
+            "alram":false,
+            "dueTo":"tommorow",
+            "repeat":"week",
+            "createdAt":"2017-11-11T11:20:12Z"
         }
     ]
 }
