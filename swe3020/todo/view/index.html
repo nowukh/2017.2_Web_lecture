@@ -38,7 +38,8 @@
             $("#add").click(function(){
                 console.log("clicked");
                 $.get("https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json",{"name":"추가된 과제","color":"blue", "icon":"default"}
-                    , function(result, status){                    
+                    , function(result, status){ 
+                        console.log(result);                   
                         var arr = result.data;
                         var icon = result.icon
                         var list = " ";
