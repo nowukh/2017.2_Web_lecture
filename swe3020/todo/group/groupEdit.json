@@ -17,10 +17,17 @@
         },
         {
             "id":3, 
-            "name":"과제", 
+            "name":"과제 - 수정됨", 
             "color":"green",
             "icon":"default",
             "count":4
+        },
+        {
+            "id":4, 
+            "name":"추가된 과제", 
+            "color":"blue", 
+            "icon":"default", 
+            "count":0
         }
     ]
 }

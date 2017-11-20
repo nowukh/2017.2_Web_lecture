@@ -6,21 +6,24 @@
             "name":"오늘 할 일", 
             "color":"blue", 
             "icon":"sun",
-            "count":2
+            "count":2,
+            "show":true
         },      
         {
             "id":2, 
             "name":"To-Do", 
             "color":"blue", 
             "icon":"home", 
-            "count":0
+            "count":0,
+            "show":true
         },
         {
             "id":3, 
-            "name":"과제", 
+            "name":"과제 - 수정됨", 
             "color":"green",
             "icon":"default",
-            "count":4
+            "count":4,
+            "show":true
         }
     ]
 }
