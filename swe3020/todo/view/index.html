@@ -12,10 +12,12 @@
         <script>
         $.get("https://nowukh.github.io/swe3020/todo/groupList/groupList.json", function(result, status){
             var arr = result.data;
-            console.log(result)
+            var icon = result.icon
             var list = " ";
             for(var i = 0; i < arr.length; i++){
-                list += "<li><span style='color:" +arr[i].color + ";'>&#9776</span>"  + arr[i].name + "</li>";
+                var s = arr[i].icon
+                console.log(s)
+                list += "<li><span style='color:" +arr[i].color + ";'>"+ icon.s  +"+</span>"  + arr[i].name + "</li>";
             }
             $("#list").html(list);
         })
