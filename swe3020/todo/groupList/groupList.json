@@ -22,5 +22,6 @@
             "icon":"default",
             "count":4
         }
-    ]
+    ],
+    "icon":{"sun":"&#9788;", "home":"&#x2302;", "default":"&#9776"}
 }
