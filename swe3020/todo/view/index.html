@@ -1,9 +1,16 @@
 
 <html>
     <head>
+        <style>
+        #list li:hover{
+            background-color: rgb(199, 242, 253);
+        }
+        </style>
     </head>
     <body>
-        <ul id="list"></ul>
+        <ul id="list" style="list-style:none; padding-left:0">
+            
+        </ul>
  
         <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -15,12 +22,45 @@
             var icon = result.icon
             var list = " ";
             for(var i = 0; i < arr.length; i++){
-                var s = arr[i].icon
-                console.log(s)
-                list += "<li><span style='color:" +arr[i].color + ";'>"+ icon.s  +"+</span>"  + arr[i].name + "</li>";
+                var iconCode;
+                for(var j = 0; j < icon.length; j++){
+                    if(icon[j][0]==arr[i].icon){
+                        iconCode = icon[j][1];
+                    }
+                }
+                list += "<li><span style='color:" + arr[i].color + ";'>"+ iconCode + "</span>"  + arr[i].name 
+                + "<span style='float:right" + ";'>" + arr[i].count + "</span>" 
+                + "</li>";
             }
+            list += "<li id='"+"add' style='position:absolute;bottom:10px;'>+ 새 목록</li>"
             $("#list").html(list);
+
+            $("#add").click(function(){
+                console.log("clicked");
+                $.get("https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json",{"name":"추가된 과제","color":"blue", "icon":"default"}
+                    , function(result, status){                    
+                        var arr = result.data;
+                        var icon = result.icon
+                        var list = " ";
+                        for(var i = 0; i < arr.length; i++){
+                            var iconCode;
+                            for(var j = 0; j < icon.length; j++){
+                                if(icon[j][0]==arr[i].icon){
+                                    iconCode = icon[j][1];
+                                }
+                            }
+                            list += "<li><span style='color:" + arr[i].color + ";'>"+ iconCode + "</span>"  + arr[i].name 
+                            + "<span style='float:right" + ";'>" + arr[i].count + "</span>" 
+                            + "</li>";
+                        }
+                        list += "<li id='"+"add' style='position:absolute;bottom:10px;'>+ 새 목록</li>"
+                        $("#list").html(list);
+                    })
+            })
         })
+
+
         </script>
+        
     </body>
 </html>
