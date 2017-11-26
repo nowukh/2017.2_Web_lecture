@@ -17,30 +17,9 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
         <script>
-        $.get("https://nowukh.github.io/swe3020/todo/groupList/groupList.json", function(result, status){
+        // 리스트 그리기
+        function draw (result, status){
             var arr = result.data;
-            var icon = result.icon
-            var list = " ";
-            for(var i = 0; i < arr.length; i++){
-                var iconCode;
-                for(var j = 0; j < icon.length; j++){
-                    if(icon[j][0]==arr[i].icon){
-                        iconCode = icon[j][1];
-                    }
-                }
-                list += "<li><span style='color:" + arr[i].color + ";'>"+ iconCode + "</span>"  + arr[i].name 
-                + "<span style='float:right" + ";'>" + arr[i].count + "</span>" 
-                + "</li>";
-            }
-            list += "<li id='"+"add' style='position:absolute;bottom:10px;'>+ 새 목록</li>"
-            $("#list").html(list);
-
-            $("#add").click(function(){
-                var name = prompt("name")
-                $.get("https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json",{"name":name","color":"blue", "icon":"default"}
-                    , function(result, status){ 
-                        console.log(result);                   
-                        var arr = result.data;
                         var icon = result.icon
                         var list = " ";
                         for(var i = 0; i < arr.length; i++){
@@ -56,6 +35,18 @@
                         }
                         list += "<li id='"+"add' style='position:absolute;bottom:10px;'>+ 새 목록</li>"
                         $("#list").html(list);
+        }
+
+        // 첫 get메소드
+        $.get("https://nowukh.github.io/swe3020/todo/groupList/groupList.json", function(result, status){
+            draw(result, status);
+
+            $("#add").click(function(){
+                var name = prompt("name")
+                $.get("https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json",{"name":name,"color":"blue", "icon":"default"}
+                    , function(result, status){ 
+                        console.log(result);                   
+                        draw(result, status);
                     })
             })
         })
