@@ -1,0 +1,79 @@
+
+<html>
+    <head>
+        <style>
+        #groupList li:hover{
+            background-color: rgb(199, 242, 253);
+        }
+        #navBar{
+            width: 30%;
+        }
+        </style>
+    </head>
+    <body>
+        <nav id="navBar" style="float:left;">
+            <ul id="groupList" style="list-style:none; padding-left:0">
+                
+            </ul>
+        </nav>        
+        <button id="navBtn">click</button>
+
+
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+        // nav바 리스트 그리기
+        function draw (result){
+            var arr = result.data;
+                        var icon = result.icon
+                        var list = " ";
+                        for(var i = 0; i < arr.length; i++){
+                            var iconCode;
+                            for(var j = 0; j < icon.length; j++){
+                                if(icon[j][0]==arr[i].icon){
+                                    iconCode = icon[j][1];
+                                }
+                            }
+                            list += "<li "+"id='groupList" + arr[i].id+"'" + "onclick='"+"showTask(this.id)'" +">"+"<span " +"style='color:" + arr[i].color + ";'>"+ iconCode + "</span>"  + arr[i].name 
+                            + "<span style='float:right" + ";'>" + arr[i].count + "</span>" 
+                            + "</li>";
+                            
+                        }
+                        list += "<li id='"+"add' style=''>"+"<span style='position:absolute;bottom:10px" + ";'>" + "+ 새 목록" + "</span>" + "</li>"
+                        $("#groupList").html(list);
+        }
+        var getData;
+        // nav바 get메소드
+        $.get("https://nowukh.github.io/swe3020/todo/groupList/groupList.json", function(result, status){
+            draw(result);
+            getData = result.data;
+            $("#add").click(function(){
+                var name = prompt("name")
+                $.get("https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json",{"name":name,"color":"blue", "icon":"default"}
+                    , function(result, status){             
+                        draw(result, status);
+                        getData = result.data;
+                    })
+            })
+        })
+
+        $("#navBtn").click(function(){
+            $("#navBar").toggle();
+        })
+        var showTask = function(id){
+            for(var i = 0; i < getData.length; i++){
+                console.log(getData[i].id);
+                console.log(getData[i].taskId);
+                if(getData[i].id == id){
+                    console.log(getData[i].taskId);
+                }
+            }
+        }
+
+        </script>
+        
+    </body>
+</html>

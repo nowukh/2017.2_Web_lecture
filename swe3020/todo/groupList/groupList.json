@@ -6,21 +6,24 @@
             "name":"오늘 할 일", 
             "color":"blue", 
             "icon":"sun",
-            "count":2
+            "count":2,
+            "taskId":[1]
         },      
         {
             "id":2, 
             "name":"To-Do", 
             "color":"blue", 
             "icon":"home", 
-            "count":0
+            "count":0,
+            "taskId":[]
         },
         {
             "id":3, 
             "name":"과제", 
             "color":"green",
             "icon":"default",
-            "count":4
+            "count":4,
+            "taskId":[1,2,3]
         }
     ],
     "icon":[["sun","&#9788;"], ["home","&#x2302;"], ["default","&#9776"]]
