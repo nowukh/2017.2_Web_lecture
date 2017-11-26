@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <style>
@@ -17,7 +16,13 @@
             </ul>
         </nav>        
         <button id="navBtn">click</button>
-
+        <div id="groupDiv" style="width:70%;float:right;">
+        <h1 id="groupName"></h1>
+        </div>
+        <div style="width:70%;float:right;">
+            <ul id="taskList" style="list-style:none;">           
+            </ul>
+        </div>
 
 
         <script
@@ -25,55 +30,94 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
         <script>
-        // nav바 리스트 그리기
-        function draw (result){
-            var arr = result.data;
-                        var icon = result.icon
-                        var list = " ";
-                        for(var i = 0; i < arr.length; i++){
-                            var iconCode;
-                            for(var j = 0; j < icon.length; j++){
-                                if(icon[j][0]==arr[i].icon){
-                                    iconCode = icon[j][1];
+            var resultData;
+            var resultList;
+            var groupListUrl = "https://nowukh.github.io/swe3020/todo/groupList/groupList.json";
+            var groupAddUrl = "https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json";
+            // nav바 리스트 그리기
+            function draw (result){
+                var arr = result.data;
+                            var icon = result.icon
+                            var list = " ";
+                            for(var i = 0; i < arr.length; i++){
+                                var iconCode;                                
+                                for(var j = 0; j < icon.length; j++){
+                                    if(icon[j][0]==arr[i].icon){
+                                        iconCode = icon[j][1];
+                                    }
                                 }
+
+                                
+                                list += "<li "+"id='" + arr[i].id + "'" + ">"+"<span " +"style='color:" + arr[i].color + ";'>"+ iconCode + "</span>"  + arr[i].name 
+                                + "<span style='float:right" + ";'>" + arr[i].taskId.length + "</span>" 
+                                + "</li>";
+                                
                             }
-                            list += "<li "+"id='groupList" + arr[i].id+"'" + "onclick='"+"showTask(this.id)'" +">"+"<span " +"style='color:" + arr[i].color + ";'>"+ iconCode + "</span>"  + arr[i].name 
-                            + "<span style='float:right" + ";'>" + arr[i].count + "</span>" 
-                            + "</li>";
+                            list += "<li id='"+"add'"+ "onclick='add()'" + " style=''>"+"<span style='position:absolute;bottom:10px" + ";'>" + "+ 새 목록" + "</span>" + "</li>"
+                            $("#groupList").html(list);
+                            $("#groupList li").attr("onclick","showTask(this.id);");
                             
-                        }
-                        list += "<li id='"+"add' style=''>"+"<span style='position:absolute;bottom:10px" + ";'>" + "+ 새 목록" + "</span>" + "</li>"
-                        $("#groupList").html(list);
-        }
-        var getData;
-        // nav바 get메소드
-        $.get("https://nowukh.github.io/swe3020/todo/groupList/groupList.json", function(result, status){
-            draw(result);
-            getData = result.data;
-            $("#add").click(function(){
-                var name = prompt("name")
-                $.get("https://nowukh.github.io/swe3020/todo/groupList/groupAdd.json",{"name":name,"color":"blue", "icon":"default"}
-                    , function(result, status){             
-                        draw(result, status);
-                        getData = result.data;
-                    })
-            })
-        })
-
-        $("#navBtn").click(function(){
-            $("#navBar").toggle();
-        })
-        var showTask = function(id){
-            for(var i = 0; i < getData.length; i++){
-                console.log(getData[i].id);
-                console.log(getData[i].taskId);
-                if(getData[i].id == id){
-                    console.log(getData[i].taskId);
-                }
             }
-        }
+            // get메소드 실행, draw함수 호출
+            var setResult = function (url, data, isDraw){
+                $.get(url, function(result, data, status){             
+                            if(!isDraw)draw(result);
+                            resultData = result.data;
+                            resultList = result;
+                        })
+            }
 
+            //document.ready
+            $(setResult(groupListUrl));
+
+            //목록 추가
+            function add (){
+                    var name = prompt("name")
+                    setResult(groupAddUrl,{"name":name,"color":"blue", "icon":"default"}, true);
+                }
+
+            //nav바 토글
+            $("#navBtn").click(function(){
+                $("#navBar").toggle();
+            })
+            var taskListUrl = "https://nowukh.github.io/swe3020/todo/group/taskList.json";
+            //task 출력
+            var showTask = function(groupId){
+                $("#taskList").empty();
+                var taskIdList;
+                for(var i = 0; i < resultData.length; i ++){
+                    group = resultData[i];
+                    if(group.id == groupId){
+                        taskIdList = group.taskId;
+                        $("#groupName").text(group.name);;
+                        $('#groupDiv').css("background", group.color);
+                    }
+                }
+                $.get(taskListUrl, function(result,status){
+                    var taskData = result.data; 
+                    for(var j = 0; j < taskIdList.length; j++){
+                        for(var k = 0; k < taskData.length; k++){
+                            var task = taskData[k]
+                            if(task.id == taskIdList[j]){
+                                var liTag = "<li id='task"+task.id+"' style='"+"display:inline;'"+">"+task.name+"</li> <br>"
+                                var $li = $(liTag);
+                                var btnTag = "<input style='"+"display:inline;"+"'type='checkbox'name='task" + task.id + "'>";
+                                var $btn = $(btnTag);
+                                $("#taskList").append($btn);
+                                $("#taskList").append($li);
+                                $("input[name='task"+ task.id +"'").attr("onclick","console.log('a');");
+                                
+                            }
+                        }
+                    }
+                })
+            }//showTask 끝
+
+            var checkboxClick = function(){
+                $.get(taskListUrl, {"isDone":true}, function(result, status){             
+
+                })
+            };
         </script>
-        
     </body>
 </html>
