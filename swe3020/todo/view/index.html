@@ -53,10 +53,10 @@
                                 + "</li>";
                                 
                             }
-                            list += "<li id='"+"add'"+ "onclick='add()'" + " style=''>"+"<span style='position:absolute;bottom:10px" + ";'>" + "+ 새 목록" + "</span>" + "</li>"
+                            list += "<li id='"+"add'" + " style=''>"+"<span style='position:absolute;bottom:10px" + ";'>" + "+ 새 목록" + "</span>" + "</li>"
                             $("#groupList").html(list);
                             $("#groupList li").attr("onclick","showTask(this.id);");
-                            
+                            $("#add").attr("onclick","add()");
             }
             // get메소드 실행, draw함수 호출
             var setResult = function (url, data, isDraw){
@@ -71,20 +71,22 @@
             $(setResult(groupListUrl));
 
             //목록 추가
-            function add (){
+            var add = function(){
+                console.log("a");
                     var name = prompt("name")
-                    setResult(groupAddUrl,{"name":name,"color":"blue", "icon":"default"}, true);
+                    setResult(groupAddUrl,{"name":name,"color":"blue", "icon":"default"});
                 }
 
             //nav바 토글
             $("#navBtn").click(function(){
                 $("#navBar").toggle();
             })
+            
             var taskListUrl = "https://nowukh.github.io/swe3020/todo/group/taskList.json";
             //task 출력
             var showTask = function(groupId){
                 $("#taskList").empty();
-                var taskIdList;
+                var taskIdList = "";
                 for(var i = 0; i < resultData.length; i ++){
                     group = resultData[i];
                     if(group.id == groupId){
