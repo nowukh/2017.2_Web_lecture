@@ -15,7 +15,7 @@
                 
             </ul>
         </nav>        
-        <button id="navBtn">click</button>
+        <button id="navBtn">navBar</button>
         <div id="groupDiv" style="width:70%;float:right;">
         <h1 id="groupName"></h1>
         </div>
@@ -89,6 +89,7 @@
                     group = resultData[i];
                     if(group.id == groupId){
                         taskIdList = group.taskId;
+                        var text = "name: "+ group.name + " / " + "alram: "+ group.alram + " / " + "dueTo: "+ group.dueTo + " / " + "repeat: " + group.result + "createdAt: "+ group.createdAt; 
                         $("#groupName").text(group.name);;
                         $('#groupDiv').css("background", group.color);
                     }
@@ -99,25 +100,32 @@
                         for(var k = 0; k < taskData.length; k++){
                             var task = taskData[k]
                             if(task.id == taskIdList[j]){
-                                var liTag = "<li id='task"+task.id+"' style='"+"display:inline;'"+">"+task.name+"</li> <br>"
+                                var text = "name: "+ task.name + " / " + "alram: "+ task.alram + " / " + "dueTo: "+ task.dueTo + " / " + "repeat: " + task.result +" / " +"createdAt: "+ task.createdAt; 
+                                var liTag = "<li id='task"+task.id+"' style='"+"display:inline;'"+">"+text+"</li> <br>"
                                 var $li = $(liTag);
-                                var btnTag = "<input style='"+"display:inline;"+"'type='checkbox'name='task" + task.id + "'>";
-                                var $btn = $(btnTag);
-                                $("#taskList").append($btn);
+                                var inputTag = "<input style='"+"display:inline;"+"'type='checkbox'name='task" + task.id + "'>";
+                                var $input = $(inputTag);
+                                $("#taskList").append($input);
                                 $("#taskList").append($li);
-                                $("input[name='task"+ task.id +"'").attr("onclick","console.log('a');");
-                                
+                                $("input[name='task"+ task.id +"'").attr("onclick","checkboxClick(this.checked);");
+                                if(task.isDone==true){
+                                    $("input[name='task"+ task.id +"'").attr("checked","checked");
+                                }                                
                             }
                         }
                     }
                 })
             }//showTask 끝
 
-            var checkboxClick = function(){
-                $.get(taskListUrl, {"isDone":true}, function(result, status){             
-
-                })
-            };
+            var checkboxClick = function(isChecked){
+                var isDone = true;
+                if(!isChecked){
+                    isDone = false;
+                }else{
+                    isDone = true;
+                }
+                $.get(taskListUrl, {"isDone":isDone}, function(result, status){});
+                };
         </script>
     </body>
 </html>
